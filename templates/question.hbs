@@ -1,6 +1,19 @@
 <h2>{{title}}</h2>
-<h3>Asked by {{author}}</h3>
+<h4>Asked by <b>{{author}}</b></h4>
 
+{{#if isEditing}}
+  <form>
+    <div class="form-group">
+      <label for="description">New Description:</label>
+      {{input name="description" class="form-control" value=description}}
+    </div>
+    <button class='btn btn-success' {{action 'finishEditing'}}>Finish Editing</button>
+  </form>
+{{else}}
 <p>
   {{description}}
 </p>
+<button class='btn btn-info' {{action 'editDescription'}}>Edit Description</button>
+{{/if}}
+
+{{#link-to 'questions'}}Back to Questions{{/link-to}}
