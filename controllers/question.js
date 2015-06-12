@@ -13,9 +13,12 @@ MessageBoard.QuestionController = Ember.ObjectController.extend({
       this.get('model').save();
     },
 
-    addQuestion: function() {
-
-    }
+    deleteQuestion: function () {
+     var question = this.get('model');
+     question.deleteRecord();
+     question.save();
+     this.transitionToRoute('questions');
+   }
 
   }
 });
