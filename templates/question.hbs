@@ -1,40 +1,44 @@
-<h2>{{title}}</h2>
-<h4>Asked by <b>{{author}}</b></h4>
 
-{{#if isEditing}}
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="panel-title text-center">{{title}} (Asked by {{author}})</h1>
+  </div>
+  <div class="panel-body">
+    {{#if isEditing}}
 
-  <form>
-    <div class="form-group">
-      <label for="description">New Description:</label>
-      {{input name="description" class="form-control" value=description}}
-    </div>
-    <button class='btn btn-success' {{action 'finishEditing'}}>Finish Editing</button>
-  </form>
+      <form>
+        <div class="form-group">
+          <label for="description">New Description:</label>
+          {{input name="description" class="form-control" value=description}}
+        </div>
+        <button class='btn btn-success' {{action 'finishEditing'}}>Finish Editing</button>
+      </form>
 
-{{else}}
+    {{else}}
 
-  <p>
-    {{description}}
-  </p>
+      <p>
+        {{description}}
+      </p>
 
-  <button class='btn btn-info' {{action 'editDescription'}}>Edit Description</button>
-  <button class='btn btn-danger' {{action 'deleteQuestion'}}>Delete Question</button>
+      <button class='btn btn-info' {{action 'editDescription'}}>Edit Description</button>
+      <button class='btn btn-danger' {{action 'deleteQuestion'}}>Delete Question</button>
 
-{{/if}}
+    {{/if}}
 
-<h3>Answers:</h3>
-<ol>
-  {{#each answers}}
-   <li>{{description}} [<a href="#" {{action 'deleteAnswer' this}}>X</a>]</li>
- {{/each}}
-</ol>
+    <h3>Answers:</h3>
+    <ol>
+      {{#each answers}}
+       <li>{{description}} [<a href="#" {{action 'deleteAnswer' this}}>X</a>]</li>
+     {{/each}}
+    </ol>
 
-{{#if showAnswerButton}}
-  <button class='btn btn-warning' {{action 'addAnswer'}}>Answer Question</button>
-{{/if}}
+    {{#if showAnswerButton}}
+      <button class='btn btn-warning' {{action 'addAnswer'}}>Answer Question</button>
+    {{/if}}
 
-{{outlet}}
+    {{outlet}}
 
-<br>
+    <button class='btn btn-default' {{action 'backToQuestions'}}>Back to Questions</button>
 
-{{#link-to 'questions'}}Back to Questions{{/link-to}}
+  </div>
+</div>

@@ -1,4 +1,11 @@
-/* Put your CSS here */
+body {
+  background: url(https://dbensason1.files.wordpress.com/2010/10/800px-sanzio_01full.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .ember-application {
     margin: 20px;
 }

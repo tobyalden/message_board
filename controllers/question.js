@@ -34,6 +34,11 @@ MessageBoard.QuestionController = Ember.ObjectController.extend({
      answer.deleteRecord();
      answer.save();
      this.transitionToRoute('question', this.get('id'));
+   },
+
+   backToQuestions: function() {
+     this.set('showAnswerButton', true);
+     this.transitionToRoute('questions');
    }
 
   }
