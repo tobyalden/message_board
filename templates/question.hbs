@@ -25,12 +25,12 @@
 <h3>Answers:</h3>
 <ol>
   {{#each answers}}
-   <li>{{description}}</li>
+   <li>{{description}} [<a href="#" {{action 'deleteAnswer' this}}>X</a>]</li>
  {{/each}}
 </ol>
 
 {{#if showAnswerButton}}
-  <button class='btn btn-warning' {{action 'addAnswer'}}>Add Answer</button>
+  <button class='btn btn-warning' {{action 'addAnswer'}}>Answer Question</button>
 {{/if}}
 
 {{outlet}}
