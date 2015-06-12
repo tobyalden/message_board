@@ -22,13 +22,17 @@
 
 {{/if}}
 
+<h3>Answers:</h3>
 <ol>
   {{#each answers}}
    <li>{{description}}</li>
  {{/each}}
 </ol>
 
-{{#link-to 'answers'}}Add Answer{{/link-to}}
+{{#if showAnswerButton}}
+  <button class='btn btn-warning' {{action 'addAnswer'}}>Add Answer</button>
+{{/if}}
+
 {{outlet}}
 
 <br>

@@ -1,6 +1,7 @@
 MessageBoard.QuestionController = Ember.ObjectController.extend({
 
   isEditing: false,
+  showAnswerButton: true,
 
   actions: {
 
@@ -18,6 +19,11 @@ MessageBoard.QuestionController = Ember.ObjectController.extend({
      question.deleteRecord();
      question.save();
      this.transitionToRoute('questions');
+   },
+
+   addAnswer: function() {
+     this.set('showAnswerButton', false);
+     this.transitionToRoute('answers');
    }
 
   }

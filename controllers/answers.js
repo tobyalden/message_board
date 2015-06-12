@@ -12,6 +12,8 @@ MessageBoard.AnswersController = Ember.ArrayController.extend({
       var question = this.get('controllers.question.model');
       question.get('answers').pushObject(newAnswer);
       question.save();
+      this.get('controllers.question').set('showAnswerButton', true);
+      this.transitionToRoute('question', question.id);
     }
 
   }
