@@ -10,7 +10,7 @@ MessageBoard.QuestionsController = Ember.ArrayController.extend({
         description: this.get('description'),
       });
       newQuestion.save();
-      
+
       this.set('title', '');
       this.set('author', '');
       this.set('description', '');

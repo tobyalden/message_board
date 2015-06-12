@@ -2,6 +2,7 @@
 <h4>Asked by <b>{{author}}</b></h4>
 
 {{#if isEditing}}
+
   <form>
     <div class="form-group">
       <label for="description">New Description:</label>
@@ -9,14 +10,26 @@
     </div>
     <button class='btn btn-success' {{action 'finishEditing'}}>Finish Editing</button>
   </form>
+
 {{else}}
-<p>
-  {{description}}
-</p>
-<button class='btn btn-info' {{action 'editDescription'}}>Edit Description</button>
-<button class='btn btn-danger' {{action 'deleteQuestion'}}>Delete Question</button>
+
+  <p>
+    {{description}}
+  </p>
+
+  <button class='btn btn-info' {{action 'editDescription'}}>Edit Description</button>
+  <button class='btn btn-danger' {{action 'deleteQuestion'}}>Delete Question</button>
 
 {{/if}}
+
+<ol>
+  {{#each answers}}
+   <li>{{description}}</li>
+ {{/each}}
+</ol>
+
+{{#link-to 'answers'}}Add Answer{{/link-to}}
+{{outlet}}
 
 <br>
 
