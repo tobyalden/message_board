@@ -10,6 +10,11 @@ MessageBoard.QuestionController = Ember.ObjectController.extend({
 
     finishEditing: function() {
       this.set('isEditing', false);
+      this.get('model').save();
+    },
+
+    addQuestion: function() {
+
     }
 
   }
